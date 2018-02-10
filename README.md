@@ -1,9 +1,9 @@
 # Pitch-Analytics
 # Average Number of Game Points in Play
 
-![alt text](https://raw.githubusercontent.com/jduffymclaughlin/Pitch-Analytics/Figure_1.png)
+![Game Point Distribution](../Figure_1.png)
 
-#Distribution:
+#Simulation Stats:
 ```
 count  1000000.000000
 mean        36.921515
