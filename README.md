@@ -1,5 +1,21 @@
 # Pitch-Analytics
+# Average Number of Game Points in Play
 
+![alt text](https://raw.githubusercontent.com/jduffymclaughlin/Pitch-Analytics/Figure_1.png)
+
+#Distribution:
+```
+count  1000000.000000
+mean        36.921515
+std          9.177131
+min          3.000000
+25%         30.000000
+50%         37.000000
+75%         43.000000
+max         73.000000
+```
+
+#Example:
 ##Original Hand
 ```
 Player 0  [7_clubs, Q_diamonds, 7_hearts, A_spades, 10_diamonds, A_hearts]
