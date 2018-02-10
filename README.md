@@ -1,7 +1,7 @@
 # Pitch-Analytics
 # Average Number of Game Points in Play
 
-![Game Point Distribution](./AvgPointsInPlay.png)
+![Game Point Distribution](./GamePointsInPlay.png)
 
 #Simulation Stats:
 ```
