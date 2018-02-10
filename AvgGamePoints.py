@@ -15,8 +15,8 @@ for i in range(1000000):
         for card in hand:
             gamePointsInPlay += card.gamePoints
     gameResults.append(gamePointsInPlay)
-
-df = pd.DataFrame(gameResults)
+    #print(gamePointsInPlay)
+df = pd.DataFrame(gameResults, columns=['GamePointsInPlay'])
 print(df.describe())
 
 df.plot(kind='hist', bins=30)
