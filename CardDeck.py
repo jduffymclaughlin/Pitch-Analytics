@@ -39,25 +39,27 @@ class PitchDeck:
             for player, hand in hands.items():
                 print('Player ' + str(player) + "  " + str(hand))
 
-    def bid_exchange(self):
+    def deal(self):
+        self.origHands = {n: [self.deck.popleft() for _ in range(6)] for n in range(4)}
+        self.print_hands(self.origHands)
 
-        origHands = {n: [self.deck.popleft() for _ in range(6)] for n in range(4)}
-        trump = random.choice(self.suits)
-        self.print_hands(origHands)
+    def bid(self):
+        self.trump = random.choice(self.suits)
 
-        newHands = dict()
-        for i, hand in origHands.items():
-            newHands[i] = []
+    def exchange(self):
+
+        self.finalHands = dict()
+        for i, hand in self.origHands.items():
+            self.finalHands[i] = []
             for card in hand:
                 if card.suit == self.trump:
-                    newHands[i].append(card)
+                    self.finalHands[i].append(card)
             if self.printing:
-                print(i, newHands[i])
-            while len(newHands[i]) < 6:
-                newHands[i].append(self.deck.popleft())
+                print(i, self.finalHands[i])
+            while len(self.finalHands[i]) < 6:
+                self.finalHands[i].append(self.deck.popleft())
         
-        self.print_hands(newHands)
-
-        return newHands
+        self.print_hands(self.finalHands)
+        
 
 

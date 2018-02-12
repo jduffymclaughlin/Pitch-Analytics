@@ -1,6 +1,10 @@
 # Pitch-Analytics
 # Average Number of Game Points in Play
 
+```
+https://en.wikipedia.org/wiki/Pitch_(card_game)
+```
+
 ![Game Point Distribution](./GamePointsInPlay.png)
 
 #Simulation Stats:
@@ -16,7 +20,7 @@ max         73.000000
 ```
 
 #Example:
-##Original Hand
+#Original Hand
 ```
 Player 0  [7_clubs, Q_diamonds, 7_hearts, A_spades, 10_diamonds, A_hearts]
 Player 1  [K_hearts, 2_clubs, 5_clubs, 10_hearts, 6_clubs, 3_hearts]

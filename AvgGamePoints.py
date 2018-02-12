@@ -5,10 +5,15 @@ import matplotlib.pyplot as plt
 gameResults = []
 
 
-for i in range(1000000):
-    deck = PitchDeck(printing=False)
+for i in range(10):
+
+    deck = PitchDeck(printing=True)
+
     deck.shuffle()
-    hands = deck.bid_exchange()
+    deck.deal()
+    deck.bid()
+    deck.exchange()
+    hands = deck.finalHands
 
     gamePointsInPlay = 0
     for player, hand in hands.items():
