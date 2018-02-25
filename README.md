@@ -4,8 +4,6 @@
 https://en.wikipedia.org/wiki/Pitch_(card_game)
 ```
 
-![Game Point Distribution](./images/GamePointsInPlay.png)
-
 # Average Number of Game Points in Play
 
 ```
@@ -21,6 +19,8 @@ min            5.000000
 75%           44.000000
 max           73.000000
 ```
+
+![Game Point Distribution](./images/GamePointsInPlay.png)
 
 # Number of Trump Cards after Bidding on Lone Ace
 ```
