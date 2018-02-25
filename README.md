@@ -1,5 +1,10 @@
 # Pitch-Analytics
 
+“Half the variations which are calculated in a tournament game turn out to be completely superfluous. Unfortunately, no one knows in advance which half.” – Jan Timman
+
+
+The purpose of this repo is to better understand the card game of Pitch. A rare and compelling card game that can best be described as a team-based adaptation of High-Low-Jack. 
+
 ```
 https://en.wikipedia.org/wiki/Pitch_(card_game)
 ```
