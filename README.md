@@ -5,7 +5,7 @@
 https://en.wikipedia.org/wiki/Pitch_(card_game)
 ```
 
-![Game Point Distribution](./GamePointsInPlay.png)
+![Game Point Distribution](./images/GamePointsInPlay.png)
 
 #Simulation Stats:
 ```
@@ -43,3 +43,20 @@ Player 1  [K_hearts, 10_hearts, 3_hearts, 10_spades, 7_diamonds, J_hearts]
 Player 2  [4_hearts, 5_diamonds, K_diamonds, 9_diamonds, 5_hearts, K_spades]
 Player 3  [9_hearts, J_spades, 6_hearts, 10_clubs, 2_spades, Q_hearts]
 ```
+# Number of Trump Cards after Bidding on Lone Ace
+```
+Solo-Ace bid 0.129926 of the time
+Liklihood of at least one new trump 0.7948909379185075
+
+       TrumpAfterSoloAce
+count      129926.000000
+mean            1.299825
+std             0.937752
+min             0.000000
+25%             1.000000
+50%             1.000000
+75%             2.000000
+max             5.000000
+```
+
+![Trump Count Distribution](./images/TrumpAfterSoloAce.png)
