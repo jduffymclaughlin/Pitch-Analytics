@@ -1,5 +1,4 @@
 # Pitch-Analytics
-# Average Number of Game Points in Play
 
 ```
 https://en.wikipedia.org/wiki/Pitch_(card_game)
@@ -7,8 +6,11 @@ https://en.wikipedia.org/wiki/Pitch_(card_game)
 
 ![Game Point Distribution](./images/GamePointsInPlay.png)
 
-#Simulation Stats:
+# Average Number of Game Points in Play
+
 ```
+Simulation Stats:
+
        GamePointsInPlay
 count    1000000.000000
 mean          37.910833
@@ -22,6 +24,8 @@ max           73.000000
 
 # Number of Trump Cards after Bidding on Lone Ace
 ```
+Simulation Stats:
+
 Solo-Ace bid 0.129926 of the time
 Liklihood of at least one new trump 0.7948909379185075
 
@@ -40,8 +44,8 @@ max             5.000000
 
 
 
-#Example:
-#Original Hand
+# Example Pitch Simulation:
+# Original Hand
 
 A full card deck is created and dealt to 4 players:
 ```
@@ -51,7 +55,7 @@ Player 2 -  [8_clubs, 4_clubs, 6_clubs, J_diamonds, 10_clubs, Q_diamonds]
 Player 3 -  [A_hearts, 5_spades, 4_spades, 8_hearts, 5_hearts, 3_clubs]
 ```
 
-#Turn-in
+# Bid and Turn-In
 
 There is a valuation for each hand and the players with higher valuations are more likely to be the winning bidder. 
 ```
@@ -63,7 +67,7 @@ player 3 bids with best card A_hearts
 3 [A_hearts, 8_hearts, 5_hearts]
 ```
 
-#After Exchange
+# After Exchange
 
 The winning bidder picks their best card and all players are assumed to discard all non-trump and keep all trump:
 ```
