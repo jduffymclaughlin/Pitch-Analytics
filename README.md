@@ -31,7 +31,7 @@ max           73.000000
 # Number of Trump Cards after Bidding on Lone Ace
 
 Problem:
-What is the liklihood of an additional trump card after bidding on only and Ace? What is the average number of trump cards to expect?
+What is the liklihood of an additional trump card after bidding on only an Ace? What is the average number of trump cards to expect?
 
 1,000,000 simulations were run in which players were dealt, bid and exchanged cards. In the cases in which the winning bidder had only an ace of trump (12.9%), the number of trump cards the bidder received on the card exchange was recorded and the distribution shown below.
 
