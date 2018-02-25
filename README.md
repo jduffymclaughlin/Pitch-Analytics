@@ -9,14 +9,15 @@ https://en.wikipedia.org/wiki/Pitch_(card_game)
 
 #Simulation Stats:
 ```
-count  1000000.000000
-mean        36.921515
-std          9.177131
-min          3.000000
-25%         30.000000
-50%         37.000000
-75%         43.000000
-max         73.000000
+       GamePointsInPlay
+count    1000000.000000
+mean          37.910833
+std            9.131235
+min            5.000000
+25%           31.000000
+50%           38.000000
+75%           44.000000
+max           73.000000
 ```
 
 #Example:

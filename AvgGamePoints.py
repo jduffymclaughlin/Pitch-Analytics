@@ -6,7 +6,7 @@ from tqdm import tqdm
 
 gameResults = []
 
-for i in tqdm(range(10000)):
+for i in tqdm(range(1000000)):
 
     deck = PitchDeck(printing=False)
 
