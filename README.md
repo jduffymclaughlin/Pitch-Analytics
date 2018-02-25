@@ -5,6 +5,12 @@ https://en.wikipedia.org/wiki/Pitch_(card_game)
 ```
 
 # Average Number of Game Points in Play
+Problem:
+How many game points on average are in play at the start of game-play (after bidding and exchanging cards) ? 
+
+Below is the distribution of the total number game points in play after bidding and exchange, after 1,000,000 simulations of dealing cards, bidding and exchanging cards and summing the total game points. 
+
+See AvgGamePoints.py for the simulation code and the PitchDeck class in CardDeck.py for all related methods.
 
 ```
 Simulation Stats:
@@ -24,6 +30,12 @@ max           73.000000
 
 # Number of Trump Cards after Bidding on Lone Ace
 ```
+Problem:
+What is the liklihood of an additional trump card after bidding on only and Ace? What is the average number of trump cards to expect?
+
+1,000,000 simulations were run in which players were dealt, bid and exchanged cards. In the cases in which the winning bidder had only an ace of trump (12.9%), the number of trump cards the bidder received on the card exchange was recorded and the distribution shown below.
+
+
 Simulation Stats:
 
 Solo-Ace bid 0.129926 of the time
