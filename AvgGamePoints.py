@@ -1,13 +1,14 @@
 from CardDeck import PitchDeck
 import pandas as pd
 import matplotlib.pyplot as plt
+from tqdm import tqdm
+
 
 gameResults = []
 
+for i in tqdm(range(10000)):
 
-for i in range(10):
-
-    deck = PitchDeck(printing=True)
+    deck = PitchDeck(printing=False)
 
     deck.shuffle()
     deck.deal()
