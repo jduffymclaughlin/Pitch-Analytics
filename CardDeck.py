@@ -93,14 +93,3 @@ class PitchDeck:
         
         self.print_hands(self.finalHands)
         
-
-
-def main():
-
-    d = PitchDeck(printing=True)
-    d.shuffle()
-    d.deal()
-    d.bid()
-
-if __name__ == '__main__':
-    main()
