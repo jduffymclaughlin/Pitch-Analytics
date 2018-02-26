@@ -33,12 +33,33 @@ max           73.000000
 
 ![Game Point Distribution](./images/GamePointsInPlay.png)
 
+# Total Cards Seen
+Problem: 
+After the initial deal and the exchange, how many cards have been seen by any player and how many are still left in the deck?
+
+Simulations consist of a deal and exchange, and recording how far into the deck each hand went. See CardsSeen.py for simulations and PitchDeck class for methods.
+
+```
+Simulation Stats:
+
+            CardsSeen
+count  1000000.000000
+mean        41.558735
+std          1.520464
+min         35.000000
+25%         41.000000
+50%         42.000000
+75%         43.000000
+max         47.000000
+```
+![Game Point Distribution](./images/CardsSeen.png)
+
 # Number of Trump Cards after Bidding on Lone Ace
 
 Problem:
 What is the liklihood of an additional trump card after bidding on only an Ace? What is the average number of trump cards to expect?
 
-1,000,000 simulations were run in which players were dealt, bid and exchanged cards. In the cases in which the winning bidder had only an ace of trump (12.9%), the number of trump cards the bidder received on the card exchange was recorded and the distribution shown below.
+Simulations were run in which players were dealt, bid and exchanged cards. In the cases in which the winning bidder had only an ace of trump (12.9%), the number of trump cards the bidder received on the card exchange was recorded and the distribution shown below.
 
 See TrumpAfterAce.py for the simulation and PitchDeck class for related methods.
 

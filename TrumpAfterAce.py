@@ -8,9 +8,9 @@ allResults = list()
 soloAce = list()
 
 
-for i in tqdm(range(1000000)):
+for _ in tqdm(range(10)):
 
-    deck = PitchDeck(printing=False)
+    deck = PitchDeck(printing=True)
 
     deck.shuffle()
     deck.deal()

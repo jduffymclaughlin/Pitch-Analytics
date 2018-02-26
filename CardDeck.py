@@ -4,12 +4,13 @@ import numpy as np
 
 class Card:
 
-    gamePointValues = {'A': 4, 
-                'K': 3, 
-                'Q': 2, 
-                'J': 1,
-                '10': 10
-                }
+    gamePointValues = {
+                       'A': 4, 
+                       'K': 3, 
+                       'Q': 2, 
+                       'J': 1,
+                       '10': 10
+                       }
 
     def __init__(self, rank, suit):
 
