@@ -2,11 +2,16 @@ from CardDeck import PitchDeck
 import pandas as pd
 from tqdm import tqdm
 import matplotlib.pyplot as plt
+from tqdm import tqdm
 
 
 gameResults = []
 
+<<<<<<< HEAD
 for i in tqdm(range(10000000)):
+=======
+for i in tqdm(range(1000000)):
+>>>>>>> 6c374f7c76654a88fde61e8429bfad08968547bc
 
     deck = PitchDeck(printing=False)
 
