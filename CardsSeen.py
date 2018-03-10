@@ -8,30 +8,25 @@ import time
 
 start = time.time()
 cards_seen = []
-num_sims = 1000000
-chunks = [(0, num_sims // 4), 
-          (1 + num_sims // 4, num_sims // 2), 
-          (1 + num_sims // 2, 3 * num_sims // 4), 
-          (1 + 3 * num_sims // 4, num_sims)]
+num_sims, pools = 100000, 4
+chunks = [(start, start + num_sims // pools) for start in range(0, num_sims, num_sims // pools)]
 
 def sim(chunk):
     start, end = chunk
 
     results = list()
-    for _ in range(start, end + 1):
+    for _ in range(start, end):
         deck = PitchDeck(printing=False)
-
         deck.shuffle()
         deck.deal()
         deck.bid()
         deck.exchange()
 
         results.append(52 - len(deck.deck))
-    print(results)
     return results
 
 
-with Pool(4) as p:
+with Pool(pools) as p:
     cards_seen = p.map(sim, chunks)
 
 cards_seen = [s for c in cards_seen for s in c]

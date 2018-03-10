@@ -7,20 +7,14 @@ from multiprocessing import Pool
 
 start = time.time()
 cards_seen = []
-num_sims = 100000000
-chunks = [(0, num_sims // 4), 
-          (1 + num_sims // 4, num_sims // 2), 
-          (1 + num_sims // 2, 3 * num_sims // 4), 
-          (1 + 3 * num_sims // 4, num_sims-1)]
-
-game_results = list()
+num_sims, pools = 1000000, 4
+chunks = [(start, start + num_sims // pools) for start in range(0, num_sims, num_sims // pools)]
 
 def sim(chunk):
     start, end = chunk
     game = list()
 
-    for _ in range(start, end + 1):
-
+    for _ in range(start, end):
         deck = PitchDeck(printing=False)
         deck.shuffle()
         deck.deal()
@@ -29,21 +23,21 @@ def sim(chunk):
         hands = deck.finalHands
 
         gamePointsInPlay = 0
-        for player, hand in hands.items():
+        for hand in hands.values():
             for card in hand:
                 gamePointsInPlay += card.gamePoints
         game.append(gamePointsInPlay)
     return game
 
-with Pool(4) as p:
+with Pool(pools) as p:
     game_results = p.map(sim, chunks)
 
 game_results = [i for o in game_results for i in o]
 print("TOTAL TIME {}".format(time.time() - start))
-
 
 df = pd.DataFrame(game_results, columns=['GamePointsInPlay'])
 print(df.describe())
 
 df.plot(kind='hist', bins=30)
 plt.show()
+
