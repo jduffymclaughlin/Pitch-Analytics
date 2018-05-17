@@ -6,25 +6,26 @@ import time
 from multiprocessing import Pool
 
 start = time.time()
-num_sims = 10
+num_sims = 5
 
 games = list()
 
 for _ in range(num_sims):
 
+    print('------- New Sim -------')
     deck = PitchDeck(printing=True)
     deck.shuffle()
     deck.deal()
     deck.bid()
     deck.exchange()
-    hands = deck.finalHands
 
     gamePointsInPlay = 0
-    for hand in hands.values():
+    for hand in deck.finalHands.values():
         for card in hand:
             gamePointsInPlay += card.gamePoints
     games.append(gamePointsInPlay)
     deck.done()
+    
 
 print("TOTAL TIME {}".format(time.time() - start))
 

@@ -1,5 +1,5 @@
 import unittest
-from CardDeck_np import PitchDeck, Card
+from CardDeck import PitchDeck, Card
 
 
 class test_PitchDeck(unittest.TestCase):
@@ -31,6 +31,8 @@ class test_PitchDeck(unittest.TestCase):
             Card('Q', 'spades'),
             Card('A', 'spades'), 
             Card('2', 'clubs'),
+            Card('4', 'spades'), 
+            Card('J', 'clubs'),
         )
         self.suits = ('hearts', 'spades', 'diamonds', 'clubs')
 
@@ -65,7 +67,6 @@ class test_PitchDeck(unittest.TestCase):
             self.assertEqual(len(hand), 6)
 
     def test_bid(self):
-
         self.assertIn(self.bidding_trump, self.suits)
 
     def test_exchange(self):

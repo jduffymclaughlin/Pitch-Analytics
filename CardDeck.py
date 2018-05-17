@@ -17,7 +17,8 @@ class Card:
 
         self.rank = rank
         self.suit = suit
-        self.gamePoints = Card.gamePointValues[self.rank] if self.rank in Card.gamePointValues else 0
+        self.gamePoints = Card.gamePointValues[self.rank] \
+                            if self.rank in Card.gamePointValues else 0
 
     def __repr__(self):
         return self.rank + "_" + self.suit
@@ -37,24 +38,28 @@ class PitchDeck:
 
     def __init__(self, printing=False):
         
-        #self.deck = deque(Card(r, s) for r in PitchDeck.ranks for s in PitchDeck.suits)
+        #self.deck = [Card(r, s) for r in PitchDeck.ranks for s in PitchDeck.suits]
         self.printing = printing
         
-    def shuffle(self):
-        random.shuffle(PitchDeck.deck)
 
     def print_hands(self, hands):
         
         if self.printing:
             for player, hand in hands.items():
-                print('Player ' + str(player) + " -  " + str(hand))
+                print('Player {} -  {}'.format(str(player), str(hand)))
             print()
 
+    def shuffle(self):
+        random.shuffle(PitchDeck.deck)
+
     def deal(self):
-        self.origHands = {n: [PitchDeck.deck.popleft() for _ in range(6)] for n in range(4)}
+
+        self.origHands = {n: [PitchDeck.deck.popleft() for _ in range(6)] 
+                                                       for n in range(4)}
         self.print_hands(self.origHands)
 
     def hand_score(self):
+
         hand_scores = [0] * 4
         score_total = 0
 
@@ -80,26 +85,30 @@ class PitchDeck:
         self.trump = best_card.suit
 
         if self.printing:
-            print("player " + str(self.winning_player) + " bids with best card " + str(best_card))
+            print("player " + str(self.winning_player) + " bids with best card " \
+                            + str(best_card))
 
     def exchange(self):
 
         self.finalHands = dict()
-        self.cardsKept = dict()
+        #self.cardsKept = dict()
 
-        for i, hand in self.origHands.items():
-            self.finalHands[i] = list()
+        for player, hand in self.origHands.items():
+
+            self.finalHands[player] = list()
             for card in hand:
+                
                 if card.suit == self.trump:
-                    self.finalHands[i].append(card)
+                    self.finalHands[player].append(card)
                 else:
                     PitchDeck.deck.append(card)
-            self.cardsKept[i] = list(self.finalHands[i])
+            #self.cardsKept[player] = self.finalHands[player]
 
             if self.printing:
-                print(i, self.finalHands[i])
-            while len(self.finalHands[i]) < 6:
-                self.finalHands[i].append(self.deck.popleft())
+                print(player, self.finalHands[player])
+
+            while len(self.finalHands[player]) < 6:
+                self.finalHands[player].append(self.deck.popleft())
         
         self.print_hands(self.finalHands)
 
