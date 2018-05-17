@@ -1,6 +1,7 @@
 import random
-from collections import deque
 import numpy as np
+from collections import deque
+
 
 class Card:
 
@@ -21,28 +22,36 @@ class Card:
     def __repr__(self):
         return self.rank + "_" + self.suit
 
+    def __eq__(self, other):
+        return self.rank == other.rank and self.suit == other.suit
+
+    def __hash__(self):
+        return hash(str(self))
+
 
 class PitchDeck:
 
-    suits = ('spades', 'diamonds', 'hearts', 'clubs')
-    ranks = ('A', 'K', 'Q', 'J', '10', '9', '8', '7', '6', '5', '4', '3', '2')
+    deck = deque(Card(r, s) for s in ('spades', 'diamonds', 'hearts', 'clubs')
+                            for r in ('A', 'K', 'Q', 'J', '10', '9', '8', '7', \
+                                      '6', '5', '4', '3', '2'))
 
     def __init__(self, printing=False):
-
-        self.deck = deque([Card(r, s) for r in PitchDeck.ranks for s in PitchDeck.suits])
+        
+        #self.deck = deque(Card(r, s) for r in PitchDeck.ranks for s in PitchDeck.suits)
         self.printing = printing
-
+        
     def shuffle(self):
-        random.shuffle(self.deck)
+        random.shuffle(PitchDeck.deck)
 
     def print_hands(self, hands):
+        
         if self.printing:
             for player, hand in hands.items():
                 print('Player ' + str(player) + " -  " + str(hand))
             print()
 
     def deal(self):
-        self.origHands = {n: [self.deck.popleft() for _ in range(6)] for n in range(4)}
+        self.origHands = {n: [PitchDeck.deck.popleft() for _ in range(6)] for n in range(4)}
         self.print_hands(self.origHands)
 
     def hand_score(self):
@@ -72,7 +81,6 @@ class PitchDeck:
 
         if self.printing:
             print("player " + str(self.winning_player) + " bids with best card " + str(best_card))
-        
 
     def exchange(self):
 
@@ -84,8 +92,9 @@ class PitchDeck:
             for card in hand:
                 if card.suit == self.trump:
                     self.finalHands[i].append(card)
+                else:
+                    PitchDeck.deck.append(card)
             self.cardsKept[i] = list(self.finalHands[i])
-
 
             if self.printing:
                 print(i, self.finalHands[i])
@@ -93,4 +102,10 @@ class PitchDeck:
                 self.finalHands[i].append(self.deck.popleft())
         
         self.print_hands(self.finalHands)
-        
+
+    def done(self):
+
+        for player, hand in self.finalHands.items():
+            for card in hand:
+                PitchDeck.deck.append(card)
+
